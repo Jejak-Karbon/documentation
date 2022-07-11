@@ -1,0 +1,929 @@
+openapi: 3.0.0
+info:
+  title: Jejak Karbon
+  contact: {}
+  version: '1.0'
+servers:
+- url: http://localhost:8001
+  variables: {}
+- url: http://localhost:8002
+  variables: {}
+- url: http://localhost:8003
+  variables: {}
+- url: http://localhost:8004
+  variables: {}
+- url: http://localhost:8005
+  variables: {}
+- url: http://users.masudin.space
+  variables: {}
+- url: http://balancing.masudin.space
+  variables: {}
+- url: http://calculation.masudin.space
+  variables: {}
+- url: http://reporting.masudin.space
+  variables: {}
+- url: http://open-api.masudin.space
+  variables: {}
+paths:
+  /auth/login:
+    post:
+      tags:
+      - Success
+      summary: Login
+      operationId: Login
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+            example:
+              email: siffiyanassauri@gmail.com
+              password: illusions
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://localhost:8001
+        variables: {}
+  /auth/register:
+    post:
+      tags:
+      - Success
+      summary: Register
+      operationId: Register
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+            example:
+              name: siffiyan
+              email: siffiyanassauri@gmail.com
+              password: admin
+              role: '1'
+              city_id: '1'
+              is_active: '1'
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://localhost:8001
+        variables: {}
+  /users/update-password:
+    post:
+      tags:
+      - Success
+      summary: Update Password
+      operationId: UpdatePassword
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdatePasswordRequest'
+            example:
+              old_password: mentalist
+              password: illusions
+              confirm_password: illusions
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://localhost:8001
+        variables: {}
+  /users:
+    get:
+      tags:
+      - Success
+      summary: Index
+      operationId: Index
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://users.masudin.space
+        variables: {}
+    post:
+      tags:
+      - Success
+      summary: Store
+      operationId: Store
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StoreRequest'
+            example:
+              title: News dsdsd
+              description: News Descriptiom
+              image: '-'
+              is_active: 1
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://users.masudin.space
+        variables: {}
+  /users/3:
+    put:
+      tags:
+      - Success
+      summary: Update
+      operationId: Update
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateRequest'
+            example:
+              title: News dsdsd
+              description: News Descriptiom
+              image: '-'
+              is_active: 1
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://localhost:8001
+        variables: {}
+  /users/1:
+    delete:
+      tags:
+      - Success
+      summary: Delete
+      operationId: Delete
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://localhost:8001
+        variables: {}
+  /users/2:
+    get:
+      tags:
+      - Success
+      summary: Show
+      operationId: Show
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://users.masudin.space
+        variables: {}
+  /news:
+    get:
+      tags:
+      - Success
+      summary: Index1
+      operationId: Index1
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://open-api.masudin.space
+        variables: {}
+    post:
+      tags:
+      - Success
+      summary: Store
+      operationId: PostStore
+      parameters: []
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            encoding: {}
+            schema:
+              required:
+              - title
+              - description
+              - image
+              - is_active
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: News Title Test upload
+                description:
+                  type: string
+                  example: Description
+                image:
+                  type: string
+                is_active:
+                  type: integer
+                  format: int32
+                  example: 1
+        required: false
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://open-api.masudin.space
+        variables: {}
+  /news/3:
+    put:
+      tags:
+      - Success
+      summary: Update1
+      operationId: Update1
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateRequest'
+            example:
+              title: News Dadad
+              description: News Descriptiom
+              image: '-'
+              is_active: 1
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://open-api.masudin.space
+        variables: {}
+  /news/1:
+    delete:
+      tags:
+      - Success
+      summary: Delete1
+      operationId: Delete1
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://open-api.masudin.space
+        variables: {}
+  /news/2:
+    get:
+      tags:
+      - Success
+      summary: Show1
+      operationId: Show1
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://open-api.masudin.space
+        variables: {}
+  /weather:
+    get:
+      tags:
+      - Success
+      summary: Index2
+      operationId: Index2
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://open-api.masudin.space
+        variables: {}
+  /weather/501233:
+    get:
+      tags:
+      - Success
+      summary: Show2
+      operationId: Show2
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://open-api.masudin.space
+        variables: {}
+  /users/100:
+    get:
+      tags:
+      - Failed
+      summary: Profile User Not Found
+      operationId: ProfileUserNotFound
+      parameters:
+      - name: Authorization
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: HNDhnfehrnf334
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+      servers:
+      - url: http://users.masudin.space
+        variables: {}
+  /news/200:
+    put:
+      tags:
+      - Failed
+      summary: Update
+      operationId: PutUpdate
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateRequest'
+            example:
+              title: News Dadad
+              description: News Descriptiom
+              image: '-'
+              is_active: 1
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://open-api.masudin.space
+        variables: {}
+    get:
+      tags:
+      - Failed
+      summary: Show
+      operationId: GetShow
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://open-api.masudin.space
+        variables: {}
+  /news/100:
+    delete:
+      tags:
+      - Failed
+      summary: Delete
+      operationId: Delete2
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://open-api.masudin.space
+        variables: {}
+  /weathers:
+    get:
+      tags:
+      - Failed
+      summary: Index1
+      operationId: GetIndex1
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://open-api.masudin.space
+        variables: {}
+  /weather/501233edf:
+    get:
+      tags:
+      - Failed
+      summary: Show1
+      operationId: GetShow1
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://open-api.masudin.space
+        variables: {}
+  /categories_carbon_absorption:
+    get:
+      tags:
+      - balancing
+      summary: Get Category Carbon Absorption
+      operationId: GetCategoryCarbonAbsorption
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://localhost:8003
+        variables: {}
+  /products_carbon_absorption:
+    get:
+      tags:
+      - balancing
+      summary: Get Product Carbon Absorption
+      operationId: GetProductCarbonAbsorption
+      parameters:
+      - name: category_carbon_absorption_id
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          example: 1
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://localhost:8003
+        variables: {}
+  /user_product_carbon_absorption:
+    get:
+      tags:
+      - balancing
+      summary: Get User Carbon Absorption
+      operationId: GetUserCarbonAbsorption
+      parameters:
+      - name: user_id
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          example: 1
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://localhost:8003
+        variables: {}
+    post:
+      tags:
+      - balancing
+      summary: User Carbon Absorption
+      operationId: UserCarbonAbsorption
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserCarbonAbsorptionRequest'
+            example:
+              product_carbon_absorption_id: 2
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://localhost:8003
+        variables: {}
+  /categories_carbon_producer:
+    get:
+      tags:
+      - Category Carbon Producer
+      summary: Get Category Carbon Producer
+      operationId: GetCategoryCarbonProducer
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://localhost:8002
+        variables: {}
+  /carbon_producer:
+    get:
+      tags:
+      - Carbon Producer
+      summary: Get Carbon Producer
+      operationId: GetCarbonProducer
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://localhost:8002
+        variables: {}
+  /carbon_producer/2/calculate:
+    post:
+      tags:
+      - Carbon Producer
+      summary: Calculate Transportation Carbon Producer
+      operationId: CalculateTransportationCarbonProducer
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CalculateTransportationCarbonProducerRequest'
+            example:
+              jarak_tempuh: 10
+              bahan_bakar: Bensin
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://localhost:8002
+        variables: {}
+  /carbon_producer/11/calculate:
+    post:
+      tags:
+      - Carbon Producer
+      summary: Calculate Electricity Carbon Producer
+      operationId: CalculateElectricityCarbonProducer
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CalculateElectricityCarbonProducerRequest'
+            example:
+              lama_penggunaan: 10
+              jumlah_watt: 300
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://localhost:8002
+        variables: {}
+  /my_carbon_producer:
+    get:
+      tags:
+      - Carbon Producer
+      summary: Get My Carbon Producer
+      operationId: GetMyCarbonProducer
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://localhost:8002
+        variables: {}
+  /mapping-city:
+    get:
+      tags:
+      - reporting
+      summary: Map City
+      operationId: MapCity
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://localhost:8004
+        variables: {}
+  /rating:
+    get:
+      tags:
+      - reporting
+      summary: Rating
+      operationId: Rating
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://localhost:8004
+        variables: {}
+  /monthly-history:
+    get:
+      tags:
+      - reporting
+      summary: Monthly History
+      operationId: MonthlyHistory
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://localhost:8004
+        variables: {}
+components:
+  schemas:
+    LoginRequest:
+      title: LoginRequest
+      required:
+      - email
+      - password
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+      example:
+        email: siffiyanassauri@gmail.com
+        password: illusions
+    RegisterRequest:
+      title: RegisterRequest
+      required:
+      - name
+      - email
+      - password
+      - role
+      - city_id
+      - is_active
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        role:
+          type: string
+        city_id:
+          type: string
+        is_active:
+          type: string
+      example:
+        name: siffiyan
+        email: siffiyanassauri@gmail.com
+        password: admin
+        role: '1'
+        city_id: '1'
+        is_active: '1'
+    UpdatePasswordRequest:
+      title: UpdatePasswordRequest
+      required:
+      - old_password
+      - password
+      - confirm_password
+      type: object
+      properties:
+        old_password:
+          type: string
+        password:
+          type: string
+        confirm_password:
+          type: string
+      example:
+        old_password: mentalist
+        password: illusions
+        confirm_password: illusions
+    InvalidPasswordRequest:
+      title: InvalidPasswordRequest
+      required:
+      - email
+      - password
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+      example:
+        email: siffiyanassauri@gmail.com
+        password: mentalista
+    DuplicateEmailRequest:
+      title: DuplicateEmailRequest
+      required:
+      - name
+      - email
+      - password
+      - role
+      - city_id
+      - is_active
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        role:
+          type: string
+        city_id:
+          type: string
+        is_active:
+          type: string
+      example:
+        name: Siffiyan Assauri
+        email: siffiyanassauri@gmail.com
+        password: mentalist
+        role: '1'
+        city_id: '1205'
+        is_active: '1'
+    InvalidOldPasswordRequest:
+      title: InvalidOldPasswordRequest
+      required:
+      - old_password
+      - password
+      - confirm_password
+      type: object
+      properties:
+        old_password:
+          type: string
+        password:
+          type: string
+        confirm_password:
+          type: string
+      example:
+        old_password: password_incorrect
+        password: mentalist
+        confirm_password: mentalis
+    InvalidConfirmPasswordRequest:
+      title: InvalidConfirmPasswordRequest
+      required:
+      - old_password
+      - password
+      - confirm_password
+      type: object
+      properties:
+        old_password:
+          type: string
+        password:
+          type: string
+        confirm_password:
+          type: string
+      example:
+        old_password: mentalist
+        password: password
+        confirm_password: confirm_password
+    StoreRequest:
+      title: StoreRequest
+      required:
+      - title
+      - description
+      - image
+      - is_active
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        image:
+          type: string
+        is_active:
+          type: integer
+          format: int32
+      example:
+        title: News dsdsd
+        description: News Descriptiom
+        image: '-'
+        is_active: 1
+    UpdateRequest:
+      title: UpdateRequest
+      required:
+      - title
+      - description
+      - image
+      - is_active
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        image:
+          type: string
+        is_active:
+          type: integer
+          format: int32
+      example:
+        title: News dsdsd
+        description: News Descriptiom
+        image: '-'
+        is_active: 1
+    UserCarbonAbsorptionRequest:
+      title: UserCarbonAbsorptionRequest
+      required:
+      - product_carbon_absorption_id
+      type: object
+      properties:
+        product_carbon_absorption_id:
+          type: integer
+          format: int32
+      example:
+        product_carbon_absorption_id: 2
+    CalculateTransportationCarbonProducerRequest:
+      title: CalculateTransportationCarbonProducerRequest
+      required:
+      - jarak_tempuh
+      - bahan_bakar
+      type: object
+      properties:
+        jarak_tempuh:
+          type: integer
+          format: int32
+        bahan_bakar:
+          type: string
+      example:
+        jarak_tempuh: 10
+        bahan_bakar: Bensin
+    CalculateElectricityCarbonProducerRequest:
+      title: CalculateElectricityCarbonProducerRequest
+      required:
+      - lama_penggunaan
+      - jumlah_watt
+      type: object
+      properties:
+        lama_penggunaan:
+          type: integer
+          format: int32
+        jumlah_watt:
+          type: integer
+          format: int32
+      example:
+        lama_penggunaan: 10
+        jumlah_watt: 300
+  securitySchemes:
+    httpBearer:
+      type: http
+      scheme: bearer
+security:
+- httpBearer: []
+tags:
+- name: Success
+- name: Failed
+- name: balancing
+- name: Category Carbon Producer
+- name: Carbon Producer
+- name: reporting

@@ -1,0 +1,1164 @@
+{
+	"info": {
+		"_postman_id": "8d42781d-6d14-43c4-a678-de747ba7a6a1",
+		"name": "Jejak Karbon",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4791277"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Success",
+							"item": [
+								{
+									"name": "Login",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\":\"siffiyanassauri@gmail.com\",\r\n    \"password\":\"illusions\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{users}}/auth/login",
+											"host": [
+												"{{users}}"
+											],
+											"path": [
+												"auth",
+												"login"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Register",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\":\"siffiyan\",\r\n    \"email\":\"siffiyanassauri@gmail.com\",\r\n    \"password\":\"admin\",\r\n    \"role\":\"1\",\r\n    \"city_id\":\"1\",\r\n    \"is_active\" : \"1\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{users}}/auth/register",
+											"host": [
+												"{{users}}"
+											],
+											"path": [
+												"auth",
+												"register"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Password",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNpZmZpeWFuYXNzYXVyaUBnbWFpbC5jb20iLCJleHAiOjE2NTc0NTIyMTksImlkIjoxLCJuYW1lIjoic2lmZml5YW4ifQ.IDjJyK60Wb3Y62HXLSWwIWmrWHoGuP1UQFz5rduwA2U",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"old_password\":\"mentalist\",\r\n    \"password\":\"illusions\",\r\n    \"confirm_password\":\"illusions\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{users}}/users/update-password",
+											"host": [
+												"{{users}}"
+											],
+											"path": [
+												"users",
+												"update-password"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Failed",
+							"item": [
+								{
+									"name": "Invalid Password",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\":\"siffiyanassauri@gmail.com\",\r\n    \"password\":\"mentalista\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{users}}/auth/login",
+											"host": [
+												"{{users}}"
+											],
+											"path": [
+												"auth",
+												"login"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Duplicate Email",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\":\"Siffiyan Assauri\",\r\n    \"email\":\"siffiyanassauri@gmail.com\",\r\n    \"password\":\"mentalist\",\r\n    \"role\":\"1\",\r\n    \"city_id\":\"1205\",\r\n    \"is_active\":\"1\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{users}}/auth/register",
+											"host": [
+												"{{users}}"
+											],
+											"path": [
+												"auth",
+												"register"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Invalid Old Password",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNpZmZpeWFuYXNzYXVyaUBnbWFpbC5jb20iLCJleHAiOjE2NTc3MTkwMjEsImlkIjoxLCJuYW1lIjoiU2lmZml5YW4gQXNzYXVyaSJ9.loL_Ld4h-99Uxor6FZipQVJvd3qe1-genjfVHc7-mdc",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"old_password\":\"password_incorrect\",\r\n    \"password\":\"mentalist\",\r\n    \"confirm_password\":\"mentalis\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{users}}/users/update-password",
+											"host": [
+												"{{users}}"
+											],
+											"path": [
+												"users",
+												"update-password"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Invalid Confirm Password",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNpZmZpeWFuYXNzYXVyaUBnbWFpbC5jb20iLCJleHAiOjE2NTc3MTkwMjEsImlkIjoxLCJuYW1lIjoiU2lmZml5YW4gQXNzYXVyaSJ9.loL_Ld4h-99Uxor6FZipQVJvd3qe1-genjfVHc7-mdc",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"old_password\":\"mentalist\",\r\n    \"password\":\"password\",\r\n    \"confirm_password\":\"confirm_password\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{users}}/users/update-password",
+											"host": [
+												"{{users}}"
+											],
+											"path": [
+												"users",
+												"update-password"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "users",
+					"item": [
+						{
+							"name": "Success",
+							"item": [
+								{
+									"name": "Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{users_aws}}/users",
+											"host": [
+												"{{users_aws}}"
+											],
+											"path": [
+												"users"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Store",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"title\": \"News dsdsd\",\n    \"description\": \"News Descriptiom\",\n    \"image\": \"-\",\n    \"is_active\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{users_aws}}/users",
+											"host": [
+												"{{users_aws}}"
+											],
+											"path": [
+												"users"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"title\": \"News dsdsd\",\n    \"description\": \"News Descriptiom\",\n    \"image\": \"-\",\n    \"is_active\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{users}}/users/3",
+											"host": [
+												"{{users}}"
+											],
+											"path": [
+												"users",
+												"3"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{users}}/users/1",
+											"host": [
+												"{{users}}"
+											],
+											"path": [
+												"users",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Show",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{users_aws}}/users/2",
+											"host": [
+												"{{users_aws}}"
+											],
+											"path": [
+												"users",
+												"2"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Failed",
+							"item": [
+								{
+									"name": "Profile User Not Found",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "HNDhnfehrnf334",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{users_aws}}/users/100",
+											"host": [
+												"{{users_aws}}"
+											],
+											"path": [
+												"users",
+												"100"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "open api",
+			"item": [
+				{
+					"name": "news",
+					"item": [
+						{
+							"name": "Success",
+							"item": [
+								{
+									"name": "Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{openapi_aws}}/news",
+											"host": [
+												"{{openapi_aws}}"
+											],
+											"path": [
+												"news"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Store",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "title",
+													"value": "News Title Test upload",
+													"type": "text"
+												},
+												{
+													"key": "description",
+													"value": "Description",
+													"type": "text"
+												},
+												{
+													"key": "image",
+													"type": "file",
+													"src": "/home/syarifuddin/Downloads/jejak-karbon-HLA.drawio.png"
+												},
+												{
+													"key": "is_active",
+													"value": "1",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{openapi_aws}}/news",
+											"host": [
+												"{{openapi_aws}}"
+											],
+											"path": [
+												"news"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"title\": \"News Dadad\",\n    \"description\": \"News Descriptiom\",\n    \"image\": \"-\",\n    \"is_active\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{openapi_aws}}/news/3",
+											"host": [
+												"{{openapi_aws}}"
+											],
+											"path": [
+												"news",
+												"3"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{openapi_aws}}/news/1",
+											"host": [
+												"{{openapi_aws}}"
+											],
+											"path": [
+												"news",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Show",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{openapi_aws}}/news/2",
+											"host": [
+												"{{openapi_aws}}"
+											],
+											"path": [
+												"news",
+												"2"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Failed",
+							"item": [
+								{
+									"name": "Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{openapi_aws}}/news",
+											"host": [
+												"{{openapi_aws}}"
+											],
+											"path": [
+												"news"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Store",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "title",
+													"value": "News Title Test upload",
+													"type": "text"
+												},
+												{
+													"key": "description",
+													"value": "Description",
+													"type": "text"
+												},
+												{
+													"key": "image",
+													"type": "file",
+													"src": []
+												},
+												{
+													"key": "is_active",
+													"value": "1",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{openapi_aws}}/news",
+											"host": [
+												"{{openapi_aws}}"
+											],
+											"path": [
+												"news"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"title\": \"News Dadad\",\n    \"description\": \"News Descriptiom\",\n    \"image\": \"-\",\n    \"is_active\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{openapi_aws}}/news/200",
+											"host": [
+												"{{openapi_aws}}"
+											],
+											"path": [
+												"news",
+												"200"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{openapi_aws}}/news/100",
+											"host": [
+												"{{openapi_aws}}"
+											],
+											"path": [
+												"news",
+												"100"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Show",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{openapi_aws}}/news/200",
+											"host": [
+												"{{openapi_aws}}"
+											],
+											"path": [
+												"news",
+												"200"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "weather",
+					"item": [
+						{
+							"name": "Success",
+							"item": [
+								{
+									"name": "Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{openapi_aws}}/weather",
+											"host": [
+												"{{openapi_aws}}"
+											],
+											"path": [
+												"weather"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Show",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{openapi_aws}}/weather/501233",
+											"host": [
+												"{{openapi_aws}}"
+											],
+											"path": [
+												"weather",
+												"501233"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Failed",
+							"item": [
+								{
+									"name": "Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{openapi_aws}}/weathers",
+											"host": [
+												"{{openapi_aws}}"
+											],
+											"path": [
+												"weathers"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Show",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{openapi_aws}}/weather/501233edf",
+											"host": [
+												"{{openapi_aws}}"
+											],
+											"path": [
+												"weather",
+												"501233edf"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "balancing",
+			"item": [
+				{
+					"name": "Get Category Carbon Absorption",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{balancing}}/categories_carbon_absorption",
+							"host": [
+								"{{balancing}}"
+							],
+							"path": [
+								"categories_carbon_absorption"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Category Carbon Absorption",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{balancing}}/categories_carbon_absorption",
+							"host": [
+								"{{balancing}}"
+							],
+							"path": [
+								"categories_carbon_absorption"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product Carbon Absorption",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{balancing}}/products_carbon_absorption?category_carbon_absorption_id=1",
+							"host": [
+								"{{balancing}}"
+							],
+							"path": [
+								"products_carbon_absorption"
+							],
+							"query": [
+								{
+									"key": "category_carbon_absorption_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Carbon Absorption",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{balancing}}/user_product_carbon_absorption?user_id=1",
+							"host": [
+								"{{balancing}}"
+							],
+							"path": [
+								"user_product_carbon_absorption"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Carbon Absorption",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNpZmZpeWFuYXNzYXVyaUBnbWFpbC5jb20iLCJleHAiOjE2NTc2MTcwMzMsImlkIjoxLCJuYW1lIjoic2lmZml5YW4ifQ.eeQ4yT1Z4MsqHXpeuc8HztWBVobfx9K65fdpS3NeEbs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"product_carbon_absorption_id\":2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{balancing}}/user_product_carbon_absorption",
+							"host": [
+								"{{balancing}}"
+							],
+							"path": [
+								"user_product_carbon_absorption"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "calculation",
+			"item": [
+				{
+					"name": "Category Carbon Producer",
+					"item": [
+						{
+							"name": "Get Category Carbon Producer",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{calculation}}/categories_carbon_producer",
+									"host": [
+										"{{calculation}}"
+									],
+									"path": [
+										"categories_carbon_producer"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Carbon Producer",
+					"item": [
+						{
+							"name": "Get Carbon Producer",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{calculation}}/carbon_producer",
+									"host": [
+										"{{calculation}}"
+									],
+									"path": [
+										"carbon_producer"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Carbon Producer Filter",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{calculation}}/carbon_producer?category_carbon_producer=1",
+									"host": [
+										"{{calculation}}"
+									],
+									"path": [
+										"carbon_producer"
+									],
+									"query": [
+										{
+											"key": "category_carbon_producer",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Calculate Transportation Carbon Producer",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNpZmZpeWFuYXNzYXVyaUBnbWFpbC5jb20iLCJleHAiOjE2NTc3MTkwMjEsImlkIjoxLCJuYW1lIjoiU2lmZml5YW4gQXNzYXVyaSJ9.loL_Ld4h-99Uxor6FZipQVJvd3qe1-genjfVHc7-mdc",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"jarak_tempuh\" : 10,\r\n    \"bahan_bakar\" : \"Bensin\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{calculation}}/carbon_producer/2/calculate",
+									"host": [
+										"{{calculation}}"
+									],
+									"path": [
+										"carbon_producer",
+										"2",
+										"calculate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Calculate Electricity Carbon Producer",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNpZmZpeWFuYXNzYXVyaUBnbWFpbC5jb20iLCJleHAiOjE2NTc3MTkwMjEsImlkIjoxLCJuYW1lIjoiU2lmZml5YW4gQXNzYXVyaSJ9.loL_Ld4h-99Uxor6FZipQVJvd3qe1-genjfVHc7-mdc",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"lama_penggunaan\" : 10,\r\n    \"jumlah_watt\" : 300\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{calculation}}/carbon_producer/11/calculate",
+									"host": [
+										"{{calculation}}"
+									],
+									"path": [
+										"carbon_producer",
+										"11",
+										"calculate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get My Carbon Producer",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNpZmZpeWFuYXNzYXVyaUBnbWFpbC5jb20iLCJleHAiOjE2NTc3MTkwMjEsImlkIjoxLCJuYW1lIjoiU2lmZml5YW4gQXNzYXVyaSJ9.loL_Ld4h-99Uxor6FZipQVJvd3qe1-genjfVHc7-mdc",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{calculation}}/my_carbon_producer",
+									"host": [
+										"{{calculation}}"
+									],
+									"path": [
+										"my_carbon_producer"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "reporting",
+			"item": [
+				{
+					"name": "Map City",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{reporting}}/mapping-city",
+							"host": [
+								"{{reporting}}"
+							],
+							"path": [
+								"mapping-city"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Rating",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{reporting}}/rating",
+							"host": [
+								"{{reporting}}"
+							],
+							"path": [
+								"rating"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Monthly History",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "start_date",
+									"value": "2022-07-01",
+									"type": "text"
+								},
+								{
+									"key": "end_date",
+									"value": "2022-07-07",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{reporting}}/monthly-history",
+							"host": [
+								"{{reporting}}"
+							],
+							"path": [
+								"monthly-history"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "users",
+			"value": "http://localhost:8001",
+			"type": "string"
+		},
+		{
+			"key": "openapi",
+			"value": "http://localhost:8005",
+			"type": "string"
+		},
+		{
+			"key": "balancing",
+			"value": "http://localhost:8003",
+			"type": "string"
+		},
+		{
+			"key": "calculation",
+			"value": "http://localhost:8002",
+			"type": "string"
+		},
+		{
+			"key": "reporting",
+			"value": "http://localhost:8004",
+			"type": "string"
+		},
+		{
+			"key": "users_aws",
+			"value": "http://users.masudin.space",
+			"type": "string"
+		},
+		{
+			"key": "openapi_aws",
+			"value": "http://open-api.masudin.space",
+			"type": "string"
+		},
+		{
+			"key": "balancing_aws",
+			"value": "http://balancing.masudin.space",
+			"type": "string"
+		},
+		{
+			"key": "calculation_aws",
+			"value": "http://calculation.masudin.space",
+			"type": "string"
+		},
+		{
+			"key": "reporting_aws",
+			"value": "http://reporting.masudin.space",
+			"type": "string"
+		}
+	]
+}
